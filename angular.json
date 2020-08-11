@@ -26,7 +26,22 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "ng2-validation", 
+              "@firebase/app",
+              "firebase/app", 
+              "@firebase/database",
+              "@firebase/auth",
+              "babel-runtime/helpers/extends",
+              "babel-runtime/helpers/slicedToArray",
+              "babel-runtime/helpers/createClass",
+              "babel-runtime/core-js/get-iterator",
+              "core-js/library/fn/get-iterator"
+           ]
           },
           "configurations": {
             "production": {

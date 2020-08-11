@@ -1,0 +1,33 @@
+<p>
+   My Orders
+</p>
+
+<div class="table-responsive shadow p-3 mb-5 bg-white rounded">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of filteredOrder">
+                <td>{{product.datePlaced | date}}</td>
+                <td><a [routerLink]="['/view-order', product.key]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshTable()">
+        </ngb-pagination>
+
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshTable()">
+            <option [ngValue]="5">5 items per page</option>
+            <option [ngValue]="10">10 items per page</option>
+            <option [ngValue]="25">25 items per page</option>
+            <option [ngValue]="50">50 items per page</option>
+        </select>
+    </div>
+</div>

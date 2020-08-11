@@ -1,0 +1,40 @@
+<h4>Order History</h4>
+<p>Date : {{order?.datePlaced | date}}</p>
+<div class="row no-gutters">
+    <div class="col-md-8 col-sm-12">
+        <div class="table-responsive shadow p-3 mb-5 bg-white rounded">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="d-none d-sm-block"></th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-right">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order?.items">
+                        <td class="d-none d-sm-block">
+                            <div [style.backgroundImage]="'url(' + item.product.imageUrl + ')'" class="thumbnail">
+                            </div>
+                        </td>
+                        <td>{{item.product.title}}</td>
+                        <td>
+                            {{item.quantity}}
+                        </td>
+                        <td class="text-right">{{item.totalPrice  | currency:'INR':'symbol':'2.2-2'}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="d-none d-sm-block"></th>
+                        <th></th>
+                        <th></th>
+                        <th class="text-right">{{totalPrice()  | currency:'INR':'symbol':'2.2-2'}}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-light" (click)="location.back()">Back</button>
+        </div>
+    </div>
+</div>
